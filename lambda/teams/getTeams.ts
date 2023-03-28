@@ -2,7 +2,6 @@ import console = require("console");
 import * as AWS from "aws-sdk";
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 import { TABLE_NAME, GSI_SORTKEY, TEAMINFO_PREFIX } from "../common/constants";
-import { numberToCloudFormation } from "aws-cdk-lib";
 
 export const getTeams = async (body: any) => {
   const { tournamentTitle } = body;
