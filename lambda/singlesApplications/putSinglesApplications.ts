@@ -72,6 +72,7 @@ export const putSinglesApplications = async (body: any) => {
             firstName: singlesApplicationInfo.firstName,
             birthDay: singlesApplicationInfo.birthDay,
             schoolYear: singlesApplicationInfo.schoolYear,
+            rank: singlesApplicationInfo.rank,
             // 作成日
             createdAt: todayStr,
           },

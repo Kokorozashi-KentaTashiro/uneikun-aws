@@ -63,6 +63,7 @@ export const getSinglesHistory = async (body: any) => {
           firstName: singlesApplicationInfo.firstName,
           birthDay: singlesApplicationInfo.birthDay,
           schoolYear: singlesApplicationInfo.schoolYear,
+          rank: singlesApplicationInfo.rank,
         };
       });
 
@@ -114,12 +115,13 @@ const getSinglesApplicationsResult = async (teamDetail: any) => {
         IndexName: GSI_SORTKEY,
         ExpressionAttributeNames: {
           "#s": "sortKey",
+          "#r": "rank",
         },
         ExpressionAttributeValues: {
           ":s": teamDetail.partitionKey,
         },
         KeyConditionExpression: "#s = :s",
-        ProjectionExpression: "lastName, firstName, birthDay, schoolYear",
+        ProjectionExpression: "lastName, firstName, birthDay, schoolYear, #r",
       },
       (err) => {
         if (err) {
