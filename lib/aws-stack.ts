@@ -69,6 +69,13 @@ export class AwsStack extends cdk.Stack {
       autoVerify: {
         phone: true,
       },
+      passwordPolicy: {
+        minLength: 6,
+        requireLowercase: true,
+        requireUppercase: false,
+        requireDigits: true,
+        requireSymbols: false,
+      },
     });
 
     const userPoolClient = new cognito.UserPoolClient(
